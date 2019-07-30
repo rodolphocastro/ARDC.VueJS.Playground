@@ -49,6 +49,11 @@ Use the command `npm run build` to build and create a distributable for producti
 
 ### Running - Tests
 
+Use the command `npm run test` to run the unit tests.
+
+### Vue GUI
+
+Use the command `vue ui` to open up a Gui for managing the project.
 
 ## Contributing
 
