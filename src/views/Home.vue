@@ -1,6 +1,6 @@
 <template>
     <div id="home-content">
-        <img alt="Stick figure in a swing" src="@/assets/home_logo.png">
+        <img class="page-logo" alt="Stick figure in a swing" src="@/assets/home_logo.png">
         <h3>Welcome to ARDC's VueJS Playground Client</h3>
         <div id="home-links">
             <a href="#">Games</a>
@@ -23,10 +23,6 @@ export default {
 </script>
 
 <style>
-img{
-    width: 240px;
-    height: 240px;
-}
 
 #home-links{
     width: auto;

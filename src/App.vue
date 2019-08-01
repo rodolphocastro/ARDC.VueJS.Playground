@@ -23,4 +23,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.page-logo{
+    width: 240px;
+    height: 240px;
+}
+
 </style>
