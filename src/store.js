@@ -9,7 +9,10 @@ export default new Vuex.Store({
         apiUrl: "http://localhost:5000/",
         gitHubRepoUrl: "https://github.com/rodolphocastro/ARDC.NetCore.Playground",
         swaggerUiUrl: "http://localhost:5000/index.html",
-        swaggerDocUrl: "http://localhost:5000/swagger/v1/swagger.json"
+        swaggerDocUrl: "http://localhost:5000/swagger/v1/swagger.json",
+        games: {
+            gamesList: []
+        }
     },
     mutations: {
 

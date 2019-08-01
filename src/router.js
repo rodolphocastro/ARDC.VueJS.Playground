@@ -20,6 +20,11 @@ const router = new Router({
             path: '/docs',
             name: 'apidocs',
             component: () => import('./views/Docs.vue')
+        },
+        {
+            path: '/games',
+            name: 'games',
+            component: () => import('./views/Games.vue')
         }
     ]
 })
