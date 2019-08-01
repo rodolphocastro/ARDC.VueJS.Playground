@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
 import VueRouter from 'vue-router';
 import store from '@/store.js';
+
+import Home from './views/Home.vue';
 
 Vue.use(VueRouter);
 
@@ -14,6 +15,11 @@ const router = new Router({
             path: '/',
             name: 'home',
             component: Home
+        },
+        {
+            path: '/docs',
+            name: 'apidocs',
+            component: () => import('./views/Docs.vue')
         }
     ]
 })
