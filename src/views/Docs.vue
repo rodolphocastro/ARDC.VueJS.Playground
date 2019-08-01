@@ -1,5 +1,8 @@
 <template>
     <div id="api-docs">
+        <p>
+            <router-link to="/">Home</router-link>
+        </p>
         <img alt="a book in black and white" src="@/assets/docs_logo.png">
         <h3>Playground API documentation</h3>
         <div id="doc-links">
