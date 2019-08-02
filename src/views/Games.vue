@@ -6,8 +6,8 @@
         <img class="page-logo" alt="a dualshock 4 controller" src="@/assets/games_logo.png">
         <h3>Games</h3>
         <div id="games-navigation">
-            <router-link to="/games/">All Games</router-link>
-            <router-link to="/games/add">Add a Game</router-link>
+            <router-link :to="{ name: 'gameslist' }">All Games</router-link>
+            <router-link :to="{ name: 'gamecreate' }">Add a Game</router-link>            
         </div>
         <router-view></router-view>
     </div>
