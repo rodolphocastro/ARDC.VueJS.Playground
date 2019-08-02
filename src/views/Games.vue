@@ -5,7 +5,11 @@
         </p>
         <img class="page-logo" alt="a dualshock 4 controller" src="@/assets/games_logo.png">
         <h3>Games</h3>
-        <gamesList  />
+        <div id="games-navigation">
+            <router-link to="/games/">All Games</router-link>
+            <router-link to="/games/add">Add a Game</router-link>
+        </div>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -14,12 +18,13 @@ import GamesList from "@/components/GamesList";
 
 export default {
     name: 'games',
-    components: {
-        GamesList,
-    }
 }
 </script>
 
 <style>
+
+#games-navigation > a {
+    margin: 20px;
+}
 
 </style>

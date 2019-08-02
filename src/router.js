@@ -24,7 +24,19 @@ const router = new Router({
         {
             path: '/games',
             name: 'games',
-            component: () => import('./views/Games.vue')
+            component: () => import('./views/Games.vue'),
+            children: [
+                {
+                    path: '',
+                    name: 'gameslist',
+                    component: () => import('./components/GamesList.vue')
+                },
+                {
+                    path: 'add',
+                    name: 'gamecreate',
+                    component: () => import('./components/GameCreate.vue')
+                }
+            ]
         }
     ]
 })
