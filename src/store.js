@@ -21,6 +21,9 @@ export default new Vuex.Store({
         setGames(state, payload){
             state.games.gamesList = payload;
         },
+        appendGame(state, payload){
+            state.games.gamesList.push(payload);
+        }
     },
     actions: {
         async getGames({state, commit}) {
@@ -30,6 +33,15 @@ export default new Vuex.Store({
             }
             catch(error){
                 commit('setGames', []);
+            }
+        },
+        async addGame({state, commit}, newGame) {
+            try {
+                let response = await axios.post(`${state.apiUrl}/games`, newGame);
+                commit('appendGame', response.data)
+            }
+            catch(error){
+                console.log(error);
             }
         }
     }
