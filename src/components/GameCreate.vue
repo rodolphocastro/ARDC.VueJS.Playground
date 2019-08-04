@@ -1,6 +1,17 @@
 <template>
     <div id="game-create">
-        <h3>W.I.P.</h3>
+        <h3>Create a new game</h3>
+        <form>
+            <label>
+                Title:
+                <input type="text" v-model="newGame.name"/>
+            </label>
+            <label>
+                Release Date:
+                <input type="date" v-model="newGame.releasedOn"/>
+            </label>
+            <button @click="postGame()">Create</button>
+        </form>
     </div>
 </template>
 
@@ -9,12 +20,16 @@ export default {
     name: 'gameCreate',
     methods: {
         postGame(){
-            // TODO: Do something
+            this.$store.dispatch('addGame', this.newGame);
+            // TODO: SHow some feedback to the user
         }
     },
-    data: {
-        newGame: null,
-    }
+    data: () => ({
+        newGame: {
+            name: "",
+            releasedOn: "",
+        },
+    })
 }
 </script>
 
