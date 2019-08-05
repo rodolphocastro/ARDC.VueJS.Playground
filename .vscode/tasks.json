@@ -5,11 +5,25 @@
             "label": "Vue UI",
             "type": "shell",
             "command": "vue ui",
+            "problemMatcher": []
         },
         {
             "label": "Docker-Compose up - DEV",
             "type": "shell",
-            "command": "docker-compose up"
+            "command": "docker-compose up",
+            "problemMatcher": []
+        },
+        {
+            "label": "Npm - Install",
+            "type": "shell",
+            "command": "npm install",
+            "problemMatcher": []
+        },
+        {
+            "label": "Npm - Update",
+            "type": "shell",
+            "command": "npm update",
+            "problemMatcher": []
         }
     ]
 }
