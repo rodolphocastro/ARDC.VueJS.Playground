@@ -14,7 +14,8 @@ export default new Vuex.Store({
         swaggerUiUrl: "http://localhost:5000/index.html",
         swaggerDocUrl: "http://localhost:5000/swagger/v1/swagger.json",
         games: {
-            gamesList: []
+            gamesList: [],
+            currentGame: {}
         }
     },
     mutations: {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
         },
         appendGame(state, payload){
             state.games.gamesList.push(payload);
+        },
+        setGame(state, payload){
+            state.games.currentGame = payload;
         }
     },
     actions: {
@@ -33,6 +37,15 @@ export default new Vuex.Store({
             }
             catch(error){
                 commit('setGames', []);
+            }
+        },
+        async getGame({state, commit}, gameId) {
+            try {
+                let response = await axios.get(`${state.apiUrl}/games/${gameId}`);
+                commit('setGame', response.data);
+            }
+            catch(error){
+                console.log(error);
             }
         },
         async addGame({state, commit}, newGame) {

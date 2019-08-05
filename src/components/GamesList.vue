@@ -5,7 +5,9 @@
             <th>Actions</th>
             <tr v-for="game in games" :key="game.id">
                 <td>{{ game.name }}</td>
-                <td>View | Edit | Delete</td>
+                <td>
+                    <router-link :to="{ name: 'gamedetail', params: { id: game.id} }">View</router-link>
+                </td>
             </tr>
         </table>
     </div>
@@ -35,7 +37,7 @@ export default {
 #games-table{
     width: 80%;
     margin-left: 10%;
-    margin-right: 10%;    
+    margin-right: 10%;
 }
 
 </style>
