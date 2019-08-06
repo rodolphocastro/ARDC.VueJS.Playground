@@ -6,7 +6,8 @@
             <tr v-for="game in games" :key="game.id">
                 <td>{{ game.name }}</td>
                 <td>
-                    <router-link :to="{ name: 'gamedetail', params: { id: game.id} }">View</router-link>
+                    <router-link :to="{ name: 'gamedetail', params: { id: game.id} }">View</router-link> |
+                    <router-link :to="{ name: 'gameedit', params: { id: game.id} }">Edit</router-link>
                 </td>
             </tr>
         </table>

@@ -40,6 +40,11 @@ const router = new Router({
                     path: 'view/:id',
                     name: 'gamedetail',
                     component: () => import('./components/GameDetails.vue')
+                },
+                {
+                    path: 'edit/:id',
+                    name: 'gameedit',
+                    component: () => import('./components/GameEdit.vue')
                 }
             ]
         }

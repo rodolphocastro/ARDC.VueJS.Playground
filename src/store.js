@@ -27,6 +27,11 @@ export default new Vuex.Store({
         },
         setGame(state, payload){
             state.games.currentGame = payload;
+        },
+        updateGame(state, payload){
+            let gameIndex = state.games.gamesList.findIndex(g => g.id == payload.id);
+            state.games.gamesList[gameIndex] = payload;
+            state.games.currentGame = payload;
         }
     },
     actions: {
@@ -46,12 +51,22 @@ export default new Vuex.Store({
             }
             catch(error){
                 console.log(error);
+                commit('setGame', {});
             }
         },
         async addGame({state, commit}, newGame) {
             try {
                 let response = await axios.post(`${state.apiUrl}/games`, newGame);
                 commit('appendGame', response.data)
+            }
+            catch(error){
+                console.log(error);
+            }
+        },
+        async updateGame({state, commit}, updatedGame){
+            try {
+                let response = await axios.put(`${state.apiUrl}/games/${updatedGame.id}`, updatedGame);
+                commit('updateGame', updatedGame);
             }
             catch(error){
                 console.log(error);
