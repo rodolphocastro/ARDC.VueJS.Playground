@@ -18,6 +18,14 @@ export default new Vuex.Store({
             currentGame: {}
         }
     },
+    getters: {
+        games: state => {
+            return state.games.gamesList;
+        },
+        currentGame: state => {
+            return state.games.currentGame;
+        }
+    },
     mutations: {
         setGames(state, payload){
             state.games.gamesList = payload;
