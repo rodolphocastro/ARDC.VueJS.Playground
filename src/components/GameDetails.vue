@@ -28,7 +28,7 @@ export default {
     },
     computed: {
         currentGame(){
-            return this.$store.state.games.currentGame;
+            return this.$store.getters.currentGame;
         }
     }
 }

@@ -33,10 +33,10 @@ export default {
     computed: {
         currentGame: {
             get(){
-                return this.$store.state.games.currentGame
+                return this.$store.getters.currentGame;
             },
             set(value){
-                this.$store.commit('updateGame', value)
+                this.$store.commit('updateGame', value);
             }
         }
     }
