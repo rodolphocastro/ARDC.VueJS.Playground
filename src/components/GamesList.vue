@@ -7,7 +7,8 @@
                 <td>{{ game.name }}</td>
                 <td>
                     <router-link :to="{ name: 'gamedetail', params: { id: game.id} }">View</router-link> |
-                    <router-link :to="{ name: 'gameedit', params: { id: game.id} }">Edit</router-link>
+                    <router-link :to="{ name: 'gameedit', params: { id: game.id} }">Edit</router-link> |
+                    <a href="#" @click="deleteGame(game.id)">Delete</a>
                 </td>
             </tr>
         </table>
@@ -20,6 +21,9 @@ export default {
     methods: {
         getGames(){
             this.$store.dispatch('getGames');
+        },
+        deleteGame(gameId){
+            this.$store.dispatch('deleteGame', gameId);
         }
     },
     computed: {

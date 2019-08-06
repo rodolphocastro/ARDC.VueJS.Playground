@@ -32,6 +32,10 @@ export default new Vuex.Store({
             let gameIndex = state.games.gamesList.findIndex(g => g.id == payload.id);
             state.games.gamesList[gameIndex] = payload;
             state.games.currentGame = payload;
+        },
+        deleteGame(state, payload){
+            let gameIndex = state.games.gamesList.findIndex(g => g.id == payload);
+            state.games.gamesList.splice(gameIndex, 1);
         }
     },
     actions: {
@@ -67,6 +71,15 @@ export default new Vuex.Store({
             try {
                 let response = await axios.put(`${state.apiUrl}/games/${updatedGame.id}`, updatedGame);
                 commit('updateGame', updatedGame);
+            }
+            catch(error){
+                console.log(error);
+            }
+        },
+        async deleteGame({state, commit}, gameId){
+            try{
+                await axios.delete(`${state.apiUrl}/games/${gameId}`);
+                commit('deleteGame', gameId);
             }
             catch(error){
                 console.log(error);
