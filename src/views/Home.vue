@@ -1,9 +1,9 @@
 <template>
     <div id="home-content">
-        <img alt="Stick figure in a swing" src="@/assets/home_logo.png">
+        <img class="page-logo" alt="Stick figure in a swing" src="@/assets/home_logo.png">
         <h3>Welcome to ARDC's VueJS Playground Client</h3>
         <div id="home-links">
-            <a href="#">Games</a>
+            <router-link to="/games">Games</router-link>
             <a href="#">Reviews</a>
             <router-link to="/docs">API Docs</router-link>
             <a href="#">About</a>
@@ -14,19 +14,10 @@
 <script>
 export default {
     name: "home",
-    methods: {
-        goToApiDocs(){
-            this.$router.push('/docs');
-        }
-    }
 }
 </script>
 
 <style>
-img{
-    width: 240px;
-    height: 240px;
-}
 
 #home-links{
     width: auto;

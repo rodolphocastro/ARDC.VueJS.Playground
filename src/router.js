@@ -20,6 +20,33 @@ const router = new Router({
             path: '/docs',
             name: 'apidocs',
             component: () => import('./views/Docs.vue')
+        },
+        {
+            path: '/games',
+            name: 'games',
+            component: () => import('./views/Games.vue'),
+            children: [
+                {
+                    path: '',
+                    name: 'gameslist',
+                    component: () => import('./components/GamesList.vue')
+                },
+                {
+                    path: 'add',
+                    name: 'gamecreate',
+                    component: () => import('./components/GameCreate.vue')
+                },
+                {
+                    path: 'view/:id',
+                    name: 'gamedetail',
+                    component: () => import('./components/GameDetails.vue')
+                },
+                {
+                    path: 'edit/:id',
+                    name: 'gameedit',
+                    component: () => import('./components/GameEdit.vue')
+                }
+            ]
         }
     ]
 })
