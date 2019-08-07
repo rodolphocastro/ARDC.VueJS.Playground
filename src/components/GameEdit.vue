@@ -8,7 +8,7 @@
             <br/>
             <label>
                 Release Date:
-                <input type="date" v-model="currentGame.releasedOn"/>
+                <input type="datetime-local" v-model="currentGame.releasedOn"/>
             </label>
             <br/>
             <button @click.prevent="saveChanges()">Save Changes</button>
