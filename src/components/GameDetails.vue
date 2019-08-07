@@ -11,6 +11,7 @@
                 <input type="date" disabled v-model="currentGame.releasedOn"/>
             </label>
             <br/>
+            <router-link :to="{ name: 'gameedit', params: { id: currentGame.id }}">Edit</router-link>
         </form>
     </div>
 </template>

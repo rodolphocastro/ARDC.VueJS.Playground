@@ -11,7 +11,7 @@
                 <input type="date" v-model="currentGame.releasedOn"/>
             </label>
             <br/>
-            <button @click="saveChanges()">Save Changes</button>
+            <button @click.prevent="saveChanges()">Save Changes</button>
         </form>
     </div>
 </template>
@@ -25,6 +25,7 @@ export default {
         },
         saveChanges: function(){
             this.$store.dispatch('updateGame', this.currentGame);
+            alert("The game was updated!");
         }
     },
     mounted: function(){

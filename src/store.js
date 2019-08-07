@@ -78,8 +78,9 @@ export default new Vuex.Store({
         },
         async updateGame({state, commit}, updatedGame){
             try {
-                let response = await axios.put(`${state.apiUrl}/games/${updatedGame.id}`, updatedGame);
+                await axios.put(`${state.apiUrl}/games/${updatedGame.id}`, updatedGame);
                 commit('updateGame', updatedGame);
+                router.push({name: 'gamedetail', params: { id: updatedGame.id }});
             }
             catch(error){
                 console.log(error);

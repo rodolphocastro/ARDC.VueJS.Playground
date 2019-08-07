@@ -10,7 +10,7 @@
                 Release Date:
                 <input type="date" v-model="newGame.releasedOn"/>
             </label>
-            <button @click.prevent="postGame">Create</button>
+            <button @click.prevent="postGame()">Create</button>
         </form>
     </div>
 </template>
