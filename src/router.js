@@ -29,22 +29,22 @@ const router = new Router({
                 {
                     path: '',
                     name: 'gameslist',
-                    component: () => import('./components/GamesList.vue')
+                    component: () => import('./components/games/GamesList.vue')
                 },
                 {
                     path: 'add',
                     name: 'gamecreate',
-                    component: () => import('./components/GameCreate.vue')
+                    component: () => import('./components/games/GameCreate.vue')
                 },
                 {
                     path: 'view/:id',
                     name: 'gamedetail',
-                    component: () => import('./components/GameDetails.vue')
+                    component: () => import('./components/games/GameDetails.vue')
                 },
                 {
                     path: 'edit/:id',
                     name: 'gameedit',
-                    component: () => import('./components/GameEdit.vue')
+                    component: () => import('./components/games/GameEdit.vue')
                 }
             ]
         }
