@@ -16,6 +16,10 @@ export default new Vuex.Store({
         games: {
             gamesList: [],
             currentGame: {}
+        },
+        reviews: {
+            reviewsList: [],
+            currentReview: {}
         }
     },
     getters: {
@@ -24,6 +28,12 @@ export default new Vuex.Store({
         },
         currentGame: state => {
             return state.games.currentGame;
+        },
+        reviews: state => {
+            return state.reviews.reviewsList;
+        },
+        currentReview: state => {
+            return state.reviews.currentReview;
         }
     },
     mutations: {
