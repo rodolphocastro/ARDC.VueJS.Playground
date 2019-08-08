@@ -52,6 +52,7 @@ export default {
         },
         postReview(){
             this.$store.dispatch('addReview', this.newReview);
+            alert('The review was created!');
         },
     },
     computed: {
