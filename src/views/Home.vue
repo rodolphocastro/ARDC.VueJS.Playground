@@ -3,7 +3,7 @@
         <img class="page-logo" alt="Stick figure in a swing" src="@/assets/home_logo.png">
         <h3>Welcome to ARDC's VueJS Playground Client</h3>
         <div id="home-links">
-            <router-link to="/games">Games</router-link>
+            <router-link :to="{ name: 'gameslist' }" >Games</router-link>
             <a href="#">Reviews</a>
             <router-link to="/docs">API Docs</router-link>
             <a href="#">About</a>

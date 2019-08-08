@@ -23,7 +23,6 @@ const router = new Router({
         },
         {
             path: '/games',
-            name: 'games',
             component: () => import('./views/Games.vue'),
             children: [
                 {
