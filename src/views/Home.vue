@@ -4,7 +4,7 @@
         <h3>Welcome to ARDC's VueJS Playground Client</h3>
         <div id="home-links">
             <router-link :to="{ name: 'gameslist' }" >Games</router-link>
-            <a href="#">Reviews</a>
+            <router-link :to="{ name: 'reviewsList'}">Reviews</router-link>
             <router-link to="/docs">API Docs</router-link>
             <a href="#">About</a>
         </div>

@@ -46,6 +46,16 @@ const router = new Router({
                     component: () => import('./components/games/GameEdit.vue')
                 }
             ]
+        },
+        {
+            path: '/reviews',
+            component: () => import('./views/Reviews.vue'),
+            children: [
+                {
+                    path: '',
+                    name: 'reviewsList'
+                },
+            ]
         }
     ]
 })
