@@ -54,6 +54,9 @@ export default new Vuex.Store({
         deleteGame(state, payload){
             let gameIndex = state.games.gamesList.findIndex(g => g.id == payload);
             state.games.gamesList.splice(gameIndex, 1);
+        },
+        appendReview(state, payload){
+            state.reviews.reviewsList.push(payload);
         }
     },
     actions: {
@@ -100,6 +103,15 @@ export default new Vuex.Store({
             try{
                 await axios.delete(`${state.apiUrl}/games/${gameId}`);
                 commit('deleteGame', gameId);
+            }
+            catch(error){
+                console.log(error);
+            }
+        },
+        async addReview({state, commit}, newReview){
+            try{
+                let response = await axios.post(`${state.apiUrl}/reviews`, newReview);
+                commit('appendReview', response.data);
             }
             catch(error){
                 console.log(error);

@@ -55,6 +55,11 @@ const router = new Router({
                     path: '',
                     name: 'reviewsList'
                 },
+                {
+                    path: 'add',
+                    name: 'reviewsCreate',
+                    component: () => import('./components/reviews/ReviewCreate.vue')
+                }
             ]
         }
     ]
