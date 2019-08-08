@@ -28,7 +28,7 @@ export default {
     },
     computed: {
         games(){
-            return this.$store.state.games.gamesList;
+            return this.$store.getters.games;
         }
     },
     mounted: function () {

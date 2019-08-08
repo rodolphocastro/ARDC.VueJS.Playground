@@ -10,7 +10,7 @@
                 Release Date:
                 <input type="date" v-model="newGame.releasedOn"/>
             </label>
-            <button @click="postGame()">Create</button>
+            <button @click.prevent="postGame()">Create</button>
         </form>
     </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     methods: {
         postGame(){
             this.$store.dispatch('addGame', this.newGame);
-            // TODO: SHow some feedback to the user
+            alert("The game was created");
         }
     },
     data: () => ({

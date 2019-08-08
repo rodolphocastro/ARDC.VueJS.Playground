@@ -7,14 +7,13 @@
         <h3>Games</h3>
         <div id="games-navigation">
             <router-link :to="{ name: 'gameslist' }">All Games</router-link>
-            <router-link :to="{ name: 'gamecreate' }">Add a Game</router-link>            
+            <router-link :to="{ name: 'gamecreate' }">Add a Game</router-link>
         </div>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
-import GamesList from "@/components/GamesList";
 
 export default {
     name: 'games',

@@ -8,10 +8,10 @@
             <br/>
             <label>
                 Release Date:
-                <input type="date" v-model="currentGame.releasedOn"/>
+                <input type="datetime-local" v-model="currentGame.releasedOn"/>
             </label>
             <br/>
-            <button @click="saveChanges()">Save Changes</button>
+            <button @click.prevent="saveChanges()">Save Changes</button>
         </form>
     </div>
 </template>
@@ -25,6 +25,7 @@ export default {
         },
         saveChanges: function(){
             this.$store.dispatch('updateGame', this.currentGame);
+            alert("The game was updated!");
         }
     },
     mounted: function(){
@@ -33,10 +34,10 @@ export default {
     computed: {
         currentGame: {
             get(){
-                return this.$store.state.games.currentGame
+                return this.$store.getters.currentGame;
             },
             set(value){
-                this.$store.commit('updateGame', value)
+                this.$store.commit('updateGame', value);
             }
         }
     }

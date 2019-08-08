@@ -18,6 +18,14 @@ export default new Vuex.Store({
             currentGame: {}
         }
     },
+    getters: {
+        games: state => {
+            return state.games.gamesList;
+        },
+        currentGame: state => {
+            return state.games.currentGame;
+        }
+    },
     mutations: {
         setGames(state, payload){
             state.games.gamesList = payload;
@@ -61,7 +69,8 @@ export default new Vuex.Store({
         async addGame({state, commit}, newGame) {
             try {
                 let response = await axios.post(`${state.apiUrl}/games`, newGame);
-                commit('appendGame', response.data)
+                commit('appendGame', response.data);
+                router.push({name: 'gamedetail', params: { id: response.data.id }});
             }
             catch(error){
                 console.log(error);
@@ -69,8 +78,9 @@ export default new Vuex.Store({
         },
         async updateGame({state, commit}, updatedGame){
             try {
-                let response = await axios.put(`${state.apiUrl}/games/${updatedGame.id}`, updatedGame);
+                await axios.put(`${state.apiUrl}/games/${updatedGame.id}`, updatedGame);
                 commit('updateGame', updatedGame);
+                router.push({name: 'gamedetail', params: { id: updatedGame.id }});
             }
             catch(error){
                 console.log(error);
