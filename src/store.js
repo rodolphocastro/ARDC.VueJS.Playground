@@ -55,6 +55,9 @@ export default new Vuex.Store({
             let gameIndex = state.games.gamesList.findIndex(g => g.id == payload);
             state.games.gamesList.splice(gameIndex, 1);
         },
+        setReviews(state, payload){
+            state.reviews.reviewsList = payload;
+        },
         appendReview(state, payload){
             state.reviews.reviewsList.push(payload);
         },
@@ -109,6 +112,16 @@ export default new Vuex.Store({
             }
             catch(error){
                 console.log(error);
+            }
+        },
+        async getReviews({state, commit}){
+            try{
+                let response = await axios.get(`${state.apiUrl}/reviews`);
+                commit('setReviews', response.data);
+            }
+            catch(error){
+                console.log(error);
+                commit('setReviews', []);
             }
         },
         async getReview({state, commit}, reviewId) {

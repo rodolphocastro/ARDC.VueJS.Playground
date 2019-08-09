@@ -53,7 +53,8 @@ const router = new Router({
             children: [
                 {
                     path: '',
-                    name: 'reviewsList'
+                    name: 'reviewsList',
+                    component: () => import('./components/reviews/ReviewList.vue')
                 },
                 {
                     path: 'add',
