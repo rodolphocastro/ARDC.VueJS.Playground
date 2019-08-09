@@ -65,6 +65,11 @@ const router = new Router({
                     path: 'view/:id',
                     name: 'reviewsDetail',
                     component: () => import('./components/reviews/ReviewDetails.vue')
+                },
+                {
+                    path: 'edit/:id',
+                    name: 'reviewsEdit',
+                    component: () => import('./components/reviews/ReviewEdit.vue')
                 }
             ]
         }

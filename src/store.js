@@ -63,6 +63,11 @@ export default new Vuex.Store({
         },
         setReview(state, payload){
             state.reviews.currentReview = payload;
+        },
+        updateReview(state, payload){
+            let reviewIndex = state.reviews.reviewsList.findIndex(r => r.id == payload.id);
+            state.reviews.reviewsList[reviewIndex] = payload;
+            state.reviews.currentReview = payload;
         }
     },
     actions: {
@@ -139,6 +144,16 @@ export default new Vuex.Store({
                 let response = await axios.post(`${state.apiUrl}/reviews`, newReview);
                 commit('appendReview', response.data);
                 router.push({name: 'reviewsDetail', params: { id: response.data.id }});
+            }
+            catch(error){
+                console.log(error);
+            }
+        },
+        async updateReview({state, commit}, updatedReview){
+            try{
+                let response = await axios.put(`${state.apiUrl}/reviews/${updatedReview.id}`, updatedReview);
+                commit('updateReview', updatedReview);
+                router.push({ name: 'reviewsDetail', params: {id: updatedReview.id}});
             }
             catch(error){
                 console.log(error);

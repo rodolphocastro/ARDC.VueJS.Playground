@@ -8,7 +8,7 @@
             <br/>
             <label>
                 Score:
-                <input disabled type="number" v-model="review.score" />
+                <input type="number" v-model="review.score" />
             </label>
             <br/>
             <label>
@@ -18,29 +18,38 @@
             <br/>
             <label>
                 Review:
-                <textarea disabled v-model="review.reviewText" />
+                <textarea v-model="review.reviewText" />
             </label>
             <br/>
-            <router-link :to="{ name: 'reviewsEdit', params: { id: review.id} }">Edit</router-link>
+            <button @click.prevent="saveChanges()">Save Changes</button>
         </form>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'ReviewDetails',
+    name: 'ReviewEdit',
+    computed: {
+        review: {
+            get(){
+                return this.$store.getters.currentReview;
+            },
+            set(value){
+                this.$store.commit('updateReview', value);
+            }
+        }
+    },
     methods: {
         getReview(){
             this.$store.dispatch('getReview', this.$route.params.id);
         },
-    },
-    mounted: function() {
-        this.getReview();
-    },
-    computed: {
-        review(){
-            return this.$store.getters.currentReview;
+        saveChanges(){
+            this.$store.dispatch('updateReview', this.review);
+            alert("The review was updated!");
         }
+    },
+    mounted(){
+        this.getReview();
     }
 }
 </script>
