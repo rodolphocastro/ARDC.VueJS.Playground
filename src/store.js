@@ -68,6 +68,10 @@ export default new Vuex.Store({
             let reviewIndex = state.reviews.reviewsList.findIndex(r => r.id == payload.id);
             state.reviews.reviewsList[reviewIndex] = payload;
             state.reviews.currentReview = payload;
+        },
+        deleteReview(state, payload){
+            let reviewIndex = state.reviews.reviewsList.findIndex(r => r.id == payload);
+            state.reviews.reviewsList.splice(reviewIndex, 1);
         }
     },
     actions: {
@@ -132,7 +136,7 @@ export default new Vuex.Store({
         async getReview({state, commit}, reviewId) {
             try {
                 let response = await axios.get(`${state.apiUrl}/reviews/${reviewId}`);
-                commit('setReview', response.data);                
+                commit('setReview', response.data);
             }
             catch(error){
                 console.log(error);
@@ -154,6 +158,15 @@ export default new Vuex.Store({
                 let response = await axios.put(`${state.apiUrl}/reviews/${updatedReview.id}`, updatedReview);
                 commit('updateReview', updatedReview);
                 router.push({ name: 'reviewsDetail', params: {id: updatedReview.id}});
+            }
+            catch(error){
+                console.log(error);
+            }
+        },
+        async deleteReview({state, commit}, reviewId){
+            try{
+                await axios.delete(`${state.apiUrl}/reviews/${reviewId}`);
+                commit('deleteReview', reviewId);
             }
             catch(error){
                 console.log(error);

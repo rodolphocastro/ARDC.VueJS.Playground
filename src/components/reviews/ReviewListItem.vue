@@ -14,8 +14,8 @@ export default {
         review: {}
     },
     methods: {
-        deleteReview(){
-            // TODO: Do something
+        deleteReview(reviewId){
+            this.$store.dispatch('deleteReview', reviewId);
         }
     }
 }
