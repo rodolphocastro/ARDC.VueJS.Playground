@@ -1,5 +1,5 @@
 <template>
-    <div id="game-edit">
+    <div id="game-edit" v-if="currentGame">
         <form>
             <label>
                 Title:

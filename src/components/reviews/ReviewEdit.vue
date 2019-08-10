@@ -1,5 +1,5 @@
 <template>
-    <div id="review-detail">
+    <div id="review-detail" v-if="review">
         <form>
             <label>
                 Author:
