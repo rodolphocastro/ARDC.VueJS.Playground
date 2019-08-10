@@ -16,6 +16,10 @@ export default new Vuex.Store({
         games: {
             gamesList: [],
             currentGame: {}
+        },
+        reviews: {
+            reviewsList: [],
+            currentReview: {}
         }
     },
     getters: {
@@ -24,6 +28,12 @@ export default new Vuex.Store({
         },
         currentGame: state => {
             return state.games.currentGame;
+        },
+        reviews: state => {
+            return state.reviews.reviewsList;
+        },
+        currentReview: state => {
+            return state.reviews.currentReview;
         }
     },
     mutations: {
@@ -44,6 +54,24 @@ export default new Vuex.Store({
         deleteGame(state, payload){
             let gameIndex = state.games.gamesList.findIndex(g => g.id == payload);
             state.games.gamesList.splice(gameIndex, 1);
+        },
+        setReviews(state, payload){
+            state.reviews.reviewsList = payload;
+        },
+        appendReview(state, payload){
+            state.reviews.reviewsList.push(payload);
+        },
+        setReview(state, payload){
+            state.reviews.currentReview = payload;
+        },
+        updateReview(state, payload){
+            let reviewIndex = state.reviews.reviewsList.findIndex(r => r.id == payload.id);
+            state.reviews.reviewsList[reviewIndex] = payload;
+            state.reviews.currentReview = payload;
+        },
+        deleteReview(state, payload){
+            let reviewIndex = state.reviews.reviewsList.findIndex(r => r.id == payload);
+            state.reviews.reviewsList.splice(reviewIndex, 1);
         }
     },
     actions: {
@@ -90,6 +118,55 @@ export default new Vuex.Store({
             try{
                 await axios.delete(`${state.apiUrl}/games/${gameId}`);
                 commit('deleteGame', gameId);
+            }
+            catch(error){
+                console.log(error);
+            }
+        },
+        async getReviews({state, commit}){
+            try{
+                let response = await axios.get(`${state.apiUrl}/reviews`);
+                commit('setReviews', response.data);
+            }
+            catch(error){
+                console.log(error);
+                commit('setReviews', []);
+            }
+        },
+        async getReview({state, commit}, reviewId) {
+            try {
+                let response = await axios.get(`${state.apiUrl}/reviews/${reviewId}`);
+                commit('setReview', response.data);
+            }
+            catch(error){
+                console.log(error);
+                commit('setReview', {});
+            }
+        },
+        async addReview({state, commit}, newReview){
+            try{
+                let response = await axios.post(`${state.apiUrl}/reviews`, newReview);
+                commit('appendReview', response.data);
+                router.push({name: 'reviewsDetail', params: { id: response.data.id }});
+            }
+            catch(error){
+                console.log(error);
+            }
+        },
+        async updateReview({state, commit}, updatedReview){
+            try{
+                let response = await axios.put(`${state.apiUrl}/reviews/${updatedReview.id}`, updatedReview);
+                commit('updateReview', updatedReview);
+                router.push({ name: 'reviewsDetail', params: {id: updatedReview.id}});
+            }
+            catch(error){
+                console.log(error);
+            }
+        },
+        async deleteReview({state, commit}, reviewId){
+            try{
+                await axios.delete(`${state.apiUrl}/reviews/${reviewId}`);
+                commit('deleteReview', reviewId);
             }
             catch(error){
                 console.log(error);

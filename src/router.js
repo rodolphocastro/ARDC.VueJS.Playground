@@ -46,6 +46,32 @@ const router = new Router({
                     component: () => import('./components/games/GameEdit.vue')
                 }
             ]
+        },
+        {
+            path: '/reviews',
+            component: () => import('./views/Reviews.vue'),
+            children: [
+                {
+                    path: '',
+                    name: 'reviewsList',
+                    component: () => import('./components/reviews/ReviewList.vue')
+                },
+                {
+                    path: 'add',
+                    name: 'reviewsCreate',
+                    component: () => import('./components/reviews/ReviewCreate.vue')
+                },
+                {
+                    path: 'view/:id',
+                    name: 'reviewsDetail',
+                    component: () => import('./components/reviews/ReviewDetails.vue')
+                },
+                {
+                    path: 'edit/:id',
+                    name: 'reviewsEdit',
+                    component: () => import('./components/reviews/ReviewEdit.vue')
+                }
+            ]
         }
     ]
 })
