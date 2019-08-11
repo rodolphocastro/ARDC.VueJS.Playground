@@ -1,13 +1,22 @@
 <template>
-    <div id="home-content">
-        <img class="page-logo" alt="Stick figure in a swing" src="@/assets/home_logo.png">
+    <div>
+        <img class="page-logo" alt="Stick figure in a swing" src="@/assets/home_logo.png"/>
         <h3>Welcome to ARDC's VueJS Playground Client</h3>
-        <div id="home-links">
-            <router-link :to="{ name: 'gameslist' }" >Games</router-link>
-            <router-link :to="{ name: 'reviewsList'}">Reviews</router-link>
-            <router-link to="/docs">API Docs</router-link>
-            <a href="#">About</a>
-        </div>
+        <p class="lead">This client aims to provide a baseline for VueJS testing</p>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'gameslist' }" >Games</router-link>
+            </li>
+            <li class="nav-item">
+                <router-link class="nav-link" :to="{ name: 'reviewsList'}">Reviews</router-link>
+            </li>
+            <li class="nav-item">
+                <router-link class="nav-link" to="/docs">API Docs</router-link>
+            </li>
+            <li>
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -18,13 +27,5 @@ export default {
 </script>
 
 <style>
-
-#home-links{
-    width: auto;
-}
-
-#home-links > a {
-    margin: 20px;
-}
 
 </style>
