@@ -11,9 +11,6 @@ export default {
         review: {}
     },
     methods: {
-        deleteReview(reviewId){
-            this.$store.dispatch('deleteReview', reviewId);
-        },
         detailReview(reviewId){
           this.$router.push({ name: 'reviewsDetail', params: { id: reviewId}});
         }
