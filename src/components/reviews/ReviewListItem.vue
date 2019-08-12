@@ -1,9 +1,6 @@
 <template>
-    <li>
+    <li class="list-group-item list-group-item-action" @click="detailReview(review.id)">
         {{ review.subjectName }}
-        <router-link :to="{ name: 'reviewsDetail', params: { id: review.id }}">View</router-link> |
-        <router-link :to="{ name: 'reviewsEdit', params: { id: review.id }}">Edit</router-link> |
-        <a href="#" @click="deleteReview(review.id)">Delete</a>
     </li>
 </template>
 
@@ -16,6 +13,9 @@ export default {
     methods: {
         deleteReview(reviewId){
             this.$store.dispatch('deleteReview', reviewId);
+        },
+        detailReview(reviewId){
+          this.$router.push({ name: 'reviewsDetail', params: { id: reviewId}});
         }
     }
 }
