@@ -3,11 +3,11 @@
         <form class="col-sm-12">
             <div class="form-group">
                 <label for="inputGameName">Title</label>
-                <input id="inputGameName" class="form-control" type="text" disabled v-model="currentGame.name"/>
+                <input id="inputGameName" class="form-control" type="text" readonly v-model="currentGame.name"/>
             </div>
             <div class="form-group">
                 <label for="inputGameRelease">Release Date</label>
-                <input id="inputGameRelease" class="form-control" type="datetime-local" disabled v-model="currentGame.releasedOn"/>
+                <input id="inputGameRelease" class="form-control" type="datetime-local" readonly v-model="currentGame.releasedOn"/>
             </div>            
         </form>
         <ul class="col-sm-12 nav justify-content-center">

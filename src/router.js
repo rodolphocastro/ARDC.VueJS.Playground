@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import VueRouter from 'vue-router';
-import store from '@/store.js';
 
 import Home from './views/Home.vue';
 
