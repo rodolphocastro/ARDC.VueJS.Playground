@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app" class="flex-shrink-0">
     <main class="container app-container">
       <router-view></router-view>
-    </main>
+    </main>    
   </div>
 </template>
 
