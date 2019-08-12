@@ -1,17 +1,10 @@
 <template>
     <div id="games-list">
-        <table id="games-table">
-            <th>Title</th>
-            <th>Actions</th>
-            <tr v-for="game in games" :key="game.id">
-                <td>{{ game.name }}</td>
-                <td>
-                    <router-link :to="{ name: 'gamedetail', params: { id: game.id} }">View</router-link> |
-                    <router-link :to="{ name: 'gameedit', params: { id: game.id} }">Edit</router-link> |
-                    <a href="#" @click="deleteGame(game.id)">Delete</a>
-                </td>
-            </tr>
-        </table>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action" v-for="game in games" :key="game.id" @click="detailGame(game.id)">
+                {{ game.name }}
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -24,6 +17,9 @@ export default {
         },
         deleteGame(gameId){
             this.$store.dispatch('deleteGame', gameId);
+        },
+        detailGame(gameId){
+            this.$router.push({ name: 'gamedetail', params: { id: gameId}});
         }
     },
     computed: {
