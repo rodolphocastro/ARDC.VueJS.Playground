@@ -14,10 +14,7 @@ export default {
     methods: {
         getGames(){
             this.$store.dispatch('getGames');
-        },
-        deleteGame(gameId){
-            this.$store.dispatch('deleteGame', gameId);
-        },
+        },        
         detailGame(gameId){
             this.$router.push({ name: 'gamedetail', params: { id: gameId}});
         }
