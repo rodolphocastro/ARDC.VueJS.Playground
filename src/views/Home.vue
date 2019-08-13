@@ -13,8 +13,8 @@
       <li class="nav-item">
         <router-link class="nav-link" to="/docs">API Docs</router-link>
       </li>
-      <li>
-        <a class="nav-link" href="#">About</a>
+      <li class="nav-item">
+        <router-link class="nav-link" to="/about">About</router-link>
       </li>
     </ul>
   </div>
