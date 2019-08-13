@@ -4,11 +4,11 @@
 
 ### Master
 
-WIP
+[![Build Status](https://travis-ci.com/rodolphocastro/ARDC.VueJS.Playground.svg?branch=master)](https://travis-ci.com/rodolphocastro/ARDC.VueJS.Playground)
 
 ### Develop
 
-WIP
+[![Build Status](https://travis-ci.com/rodolphocastro/ARDC.VueJS.Playground.svg?branch=develop)](https://travis-ci.com/rodolphocastro/ARDC.VueJS.Playground)
 
 ### Changelogs
 
@@ -23,7 +23,11 @@ This repository aims to provide examples on how to consume a RESTFul API using V
 The following technologies and packages are used in this project:
 
 + Node
++ Axios
 + Vue
+  + Vuex
+  + Vue-Router
+  + bootstrap-vue
 
 ## Running, Building and Testing
 
