@@ -1,1 +1,16 @@
-# TODO: Setup docker compose for staging
+version: '3'
+services:
+  # VueJS Client
+  playground-client:
+    build: .
+    ports:
+      - "80:8080"
+    depends_on:
+      - playground-api
+  # dotnet Core API
+  playground-api:
+    image: rodolphoalves/ardcnetcoreplaygroundapi:1.0.0-alpha.1
+    ports:
+      - "5000:80"
+    volumes:
+      - "C:\\dockervolumes\\playground:/app/settings" # TODO: Change this to an env. variable
