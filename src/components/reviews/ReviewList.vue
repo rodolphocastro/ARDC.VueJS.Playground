@@ -1,6 +1,6 @@
 <template>
-    <div id="review-list">
-        <ul class="list-group">
+    <div id="review-list" class="container">
+        <ul class="list-group row">
             <review-list-item v-for="reviewItem in reviews" :key="reviewItem.id" :review="reviewItem"/>
         </ul>
     </div>
