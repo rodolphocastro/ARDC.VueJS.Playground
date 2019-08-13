@@ -1,6 +1,6 @@
 <template>
     <li class="list-group-item list-group-item-action" @click="detailReview(review.id)">
-        {{ review.subjectName }}
+        {{ review.subjectName }} - {{ review.score }}
     </li>
 </template>
 
