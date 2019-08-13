@@ -16,7 +16,7 @@
           <label for="inputScore">Score</label>
           <input id="inputScore" class="form-control" type="number" v-model="review.score" />
         </div>
-        <div class="form-group">
+        <div class="form-group" v-if="review.subject">
           <label for="inputGame">Game</label>
           <input
             id="inputGame"
