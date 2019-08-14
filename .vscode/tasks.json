@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Vue UI",
+            "type": "shell",
+            "command": "vue ui",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker-Compose up - DEV",
+            "type": "shell",
+            "command": "docker-compose up",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker-Compose down - DEV",
+            "type": "shell",
+            "command": "docker-compose down",
+            "problemMatcher": []
+        },
+        {
+            "label": "Npm - Install",
+            "type": "shell",
+            "command": "npm install",
+            "problemMatcher": []
+        },
+        {
+            "label": "Npm - Update",
+            "type": "shell",
+            "command": "npm update",
+            "problemMatcher": []
+        }
+    ]
+}
