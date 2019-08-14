@@ -2,9 +2,9 @@ version: '3'
 services:
   # VueJS Client
   playground-client:
-    build: .
+    image: rodolphoalves/ardcvuejsplaygroundclient:1.0.0-alpha.1
     ports:
-      - "80:8080"
+      - "80:80"
     depends_on:
       - playground-api
   # dotnet Core API
